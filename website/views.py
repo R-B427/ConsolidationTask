@@ -11,21 +11,26 @@ from website.models import Album, Event, UserFavoriteAlbum
 def home(request):
     """
     Render the authenticated home page.
-    This view requires the user to be logged in.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered home page template.
     """
-    # The @login_required decorator ensures that only authenticated users can access this view.
-    # You can add more logic here to fetch user-specific data if needed.
-    # For now, we just render the authenticated home template.
     return render(request, "home.html")
 
 
 def events(request):
     """
     Render the events page with a list of all events.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered events page template with event data.
     """
-    # Fetch all events from the database.
-    # Assuming Event is a model defined in models.py
-    # and has been imported at the top of this file.
     events = Event.objects.all()
     return render(request, "events.html", {"events": events})
 
@@ -33,33 +38,41 @@ def events(request):
 def albums(request):
     """
     Render the albums page.
-    This view requires the user to be logged in.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered albums page template.
     """
-    # Fetch albums from the database (assuming you have an Album model).
-    # For now, we will just render a placeholder template.
     return render(request, "albums.html")
 
 
 def artists(request):
     """
     Render the artists page.
-    This view requires the user to be logged in.
-    """
-    # Fetch artists from the database (assuming you have an Artist model).
-    # For now, we will just render a placeholder template.
-    return render(request, "artists.html")
 
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered artists page template.
+    """
+    return render(request, "artists.html")
 
 
 def subscribe(request):
     """
-    Render the subscribe page.
-    This view requires the user to be logged in.
+    Render the subscribe page for authenticated users.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered subscribe page if authenticated, otherwise the home page.
     """
-    # If the user is authenticated, render the subscribe template.
     if request.user.is_authenticated:
         return render(request, "subscribe.html")
-    # If the user is not authenticated, redirect them to the home page.
     else:
         return render(request, "home.html")
 
@@ -67,15 +80,18 @@ def subscribe(request):
 @csrf_exempt
 def unsubscribe(request):
     """
-    Render the unsubscribe page.
-    This view allows users to unsubscribe from the email list.
-    It can be accessed via a POST request with an email parameter.
+    Allow users to unsubscribe from the email list.
+
+    Args:
+        request (HttpRequest): The HTTP request object. Should include 'email' in POST data.
+
+    Returns:
+        HttpResponse: The rendered unsubscribe page with a message about the operation status.
     """
     message = ""
     message_type = ""
     if request.method == "POST":
         email = request.POST.get("email")
-        # Here you'd handle the removal from your email list
         if email:
             message = f"{email} has been successfully unsubscribed from EchoPulse."
             message_type = "success"
@@ -89,20 +105,30 @@ def unsubscribe(request):
 
 
 def album_detail(request, id):
-    """ Render the album detail page.
-    This view requires the user to be logged in.
     """
-    # Fetch the album by ID from the database (assuming you have an Album model).
-    # For now, we will just render a placeholder template.
+    Render the album detail page.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        id (int): The ID of the album.
+
+    Returns:
+        HttpResponse: The rendered album detail page.
+    """
     return render(request, "album_detail.html", {"id": id})
 
 
 def event_detail(request, id):
-    """ Render the event detail page.
-    This view requires the user to be logged in.
     """
-    # Fetch the event by ID from the database (assuming you have an Event model).
-    # For now, we will just render a placeholder template.
+    Render the event detail page.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        id (int): The ID of the event.
+
+    Returns:
+        HttpResponse: The rendered event detail page with the specific event.
+    """
     event = Event.objects.get(id=id)
     return render(request, "event_detail.html", {"event": event})
 
@@ -110,9 +136,12 @@ def event_detail(request, id):
 def echo_pulse_landing(request):
     """
     Render the public landing page.
-    This view checks if the user is authenticated.
-    If the user is authenticated, it redirects to the home_authenticated view.
-    If the user is not authenticated, it renders the landing page.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponseRedirect or HttpResponse: Redirects authenticated users to home, others see landing page.
     """
     if request.user.is_authenticated:
         return redirect('home_authenticated')
@@ -121,20 +150,23 @@ def echo_pulse_landing(request):
 
 def login_view(request):
     """
-    Render the login page.
-    This view handles user authentication.
-    If the user is already authenticated, it redirects to the home_authenticated view.
-    If the user submits a valid login form, it logs them in and redirects to the home_authenticated view.
+    Handle user login.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponseRedirect or HttpResponse: Redirects authenticated users to home, else renders login form.
     """
     if request.user.is_authenticated:
-        return redirect('home_authenticated')  # Redirect if already logged in
+        return redirect('home_authenticated')
 
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home_authenticated')  # Redirect to home after login
+            return redirect('home_authenticated')
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
@@ -142,8 +174,13 @@ def login_view(request):
 
 def logout_view(request):
     """
-    Handle user logout.
-    This view logs out the user and redirects to the login page.
+    Log out the current user.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the landing page.
     """
     logout(request)
     return redirect('landing')
@@ -151,10 +188,13 @@ def logout_view(request):
 
 def register(request):
     """
-    Render the registration page.
-    This view allows new users to register.
-    If the user is already authenticated, it redirects to the home_authenticated view.
-    If the user submits a valid registration form, it creates a new user, logs them in, and redirects to the home_authenticated view.
+    Handle user registration.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponseRedirect or HttpResponse: Redirects authenticated users to home, else renders registration form.
     """
     if request.user.is_authenticated:
         return redirect('home_authenticated')
@@ -172,9 +212,13 @@ def register(request):
 
 def album_list(request):
     """
-    Render a list of albums.
-    This view provides a static list of albums for demonstration purposes.
-    In a real application, you would fetch this data from a database.
+    Render a static list of albums.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered albums page with a static list of album dictionaries.
     """
     albums = [
         {
