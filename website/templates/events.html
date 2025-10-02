@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events - EchoPulse</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #f2f2f2;
+            font-family: 'Arial', sans-serif;
+            padding: 40px;
+        }
+
+        h1, h2 {
+            color: #cc0000;
+            text-align: center;
+            6px #ff9999;
+        }
+
+        a {
+            color: #cc0000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #ff4d4d;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: inline-flex;
+            gap: 20px;
+        }
+
+        nav li {
+            display: inline;
+        }
+
+        nav a {
+            font-weight: bold;
+            background-color: #1e1e1e;
+            padding: 10px 16px;
+            border-radius: 6px;
+        }
+
+        nav a:hover {
+            background-color: #cc0000;
+            color: #fff;
+        }
+
+        .section {
+            background-color: #1e1e1e;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 20px 0;
+        }
+
+        .footer-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>EchoPulse Events</h1>
+
+    <div class="section">
+        <h2>Upcoming Events</h2>
+        <ul>
+            {% for event in events %}
+                <li>
+                    <strong>{{ event.title }}</strong> – {{ event.date }} at {{ event.venue }}<br>
+                    {{ event.description }}
+                </li>
+            {% empty %}
+                <li><strong>June 2025:</strong> 12th Sydney Festival, Australia</li>
+                <li><strong>July 2025:</strong> 15th Tokyo Music Festival, Japan</li>
+                <li><strong>August 2025:</strong> 20th Berlin Music Week, Germany</li>
+                <li><strong>September 2025:</strong> 10th New York Music Expo, USA</li>
+                <li><strong>October 2025:</strong> 5th London Music Festival, UK</li>
+            {% endfor %}
+        </ul>
+         <nav class="main-nav">
+            <h2>To purchase tickets:</h2>
+               <p> Visit <a href="https://computicket.com/page/home">Computicket</a></p>
+        </nav>
+        </ul>
+    </nav>
+    </div>
+
+    <a class="footer-link" href="{% url 'home_authenticated' %}">← Back to Home</a>
+
+</body>
+</html>

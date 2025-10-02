@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unsubscribe from EchoPulse</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 60px;
+        }
+
+        h1 {
+            color: #cc0000;
+            8px #ff9999;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        form {
+            margin-top: 40px;
+        }
+
+        input[type="email"] {
+            padding: 12px;
+            width: 320px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin-left: 10px;
+            background-color: #cc0000;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #990000;
+        }
+
+        .message {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .message.success {
+            color: #66ff66;
+        }
+
+        .message.error {
+            color: #ffb3b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>We're sad to see you go</h1>
+    <p>If you no longer want updates from EchoPulse, you can unsubscribe below.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Unsubscribe</button>
+    </form>
+
+    {% if message %}
+        <div class="message {{ message_type }}">{{ message }}</div>
+    {% endif %}
+</body>
+</html>

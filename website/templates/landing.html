@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EchoPulse</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #1e1e2f, #2e2e4f);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        a.button {
+            background-color: #ff4c60;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #ff2e4d;
+        }
+    </style>
+</head>
+<body>
+    <h1>EchoPulse</h1>
+    <div class="button-container">
+        <a href="{% url 'login' %}" class="button">Login</a>
+        <a href="{% url 'register' %}" class="button">Register</a>
+    </div>
+</body>
+</html>

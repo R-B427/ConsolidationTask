@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>EchoPulse - Home</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #f2f2f2;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            border-bottom: 3px solid #cc0000;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #cc0000;
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav.main-nav {
+            display: flex;
+            justify-content: center;
+            background-color: #111;
+            border-top: 2px solid #cc0000;
+            border-bottom: 2px solid #cc0000;
+        }
+
+        nav.main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            padding: 1rem;
+            margin: 0;
+        }
+
+        nav.main-nav a {
+            text-decoration: none;
+            color: #f2f2f2;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav.main-nav a:hover {
+            color: #cc0000;
+        }
+
+        .image-bar {
+            display: flex;
+            overflow-x: auto;
+            padding: 1rem;
+            background-color: #1a1a1a;
+            gap: 1rem;
+        }
+
+        .image-bar img {
+            height: 120px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .image-bar img:hover {
+            transform: scale(1.05);
+        }
+
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            color: #e6e6e6;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            border-top: 2px solid #cc0000;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .login-bar {
+            text-align: right;
+            background-color: #0d0d0d;
+            padding: 0.5rem 1rem;
+        }
+
+        .login-bar a {
+            color: #cc0000;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .login-bar a:hover {
+            color: #f2f2f2;
+        }
+    </style>
+
+</div>
+
+    <header>
+        <h1>EchoPulse</h1>
+    </header>
+
+    <nav class="main-nav">
+        <ul><li><a href="https://computicket.com/page/home">Tickets</a></li>
+            <li><a href="https://www.tshirtterrorist.co.za/product/rock-bands/">Merchandise</a></li>
+            <li><a href="{% url 'events' %}">Events</a></li>
+            <li><a href="{% url 'album_list' %}">Albums</a></li>
+        </ul>
+    </nav>
+
+   <style>
+.image-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.image-bar-item {
+    text-align: center;
+    max-width: 200px;
+}
+
+.image-bar-item img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.image-bar-item img:hover {
+    transform: scale(1.05);
+}
+
+.location-caption {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #cc0000;
+    text-shadow: 0 0 5px #ffcccc;
+}
+</style>
+
+<div class="image-bar">
+    <div class="image-bar-item">
+        <a href="{% url 'events' %}">
+            <img src="https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTc2NDY1MzI2ODE1MzIzMzQ5/100-best-alternative-rock-bands.webp" alt="Band 1">
+        </a>
+        <div class="location-caption">New York, USA</div>
+    </div>
+    <div class="image-bar-item">
+        <a href="{% url 'events' %}">
+            <img src="https://static.wixstatic.com/media/82fcff_60e931f150664a00a0917a607b547824~mv2.gif" alt="Band 2">
+        </a>
+        <div class="location-caption">London, UK</div>
+    </div>
+    <div class="image-bar-item">
+        <a href="{% url 'events' %}">
+            <img src="https://media.soundoflife.com/34/resources/uRrDgNI1Kjb4gls4RuuOXElO1cOl05r5cIHRgGm7.jpg" alt="Band 3">
+        </a>
+        <div class="location-caption">Berlin, Germany</div>
+    </div>
+    <div class="image-bar-item">
+        <a href="{% url 'events' %}">
+            <img src="https://www.musicianwave.com/wp-content/uploads/2020/09/band-1024x682.jpg" alt="Band 4">
+        </a>
+        <div class="location-caption">Dallas, Texas</div>
+    </div>
+    <div class="image-bar-item">
+        <a href="{% url 'events' %}">
+            <img src="https://static.wixstatic.com/media/82fcff_72632ea2abf84f20a2c4825fda6bf6b3~mv2.jpg" alt="Band 5">
+        </a>
+        <div class="location-caption">Tokyo, Japan</div>
+    </div>
+</div>
+
+<h2> About EchoPulse</h2>
+<p>EchoPulse is your go-to platform for discovering the latest in alternative rock music. From new album releases to upcoming events, we keep you connected with the pulse of the music scene.</p>
+<p> The journey of EchoPulse began with a simple idea: to create a space where music lovers could come together, share their passion, and discover new sounds. Over the years, we've grown into a vibrant community that celebrates the diversity and creativity of alternative rock.</p>
+<p> Our band members are the heart and soul of EchoPulse. Each artist brings their unique sound and style, contributing to a rich tapestry of music that resonates with fans around the world. We believe in supporting our artists and providing them with a platform to showcase their talent.</p>
+<h2> Our Mission</h2>
+<p>At EchoPulse, our mission is to connect music lovers with the artists they love. We strive to create an inclusive and engaging environment where fans can discover new music, attend live events, and interact with their favorite bands.</p>
+<style>
+    h2 {
+        color: #cc0000;
+        margin-top: 2rem;
+    }
+</style>
+
+<main>
+    <section>
+        <p>Glad to see you again! Check out the latest albums and events.</p>
+        <h3>Newsletter Signup</h3>
+        <form action="{% url 'subscribe' %}" method="post">
+            {% csrf_token %}
+            <label for="email">Enter your email to subscribe:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Subscribe</button>
+            <button type="submit"><a href="{% url 'unsubscribe' %}">Unsubscribe</a></button>
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+        </form>
+        <form action="{% url 'logout' %}" method="post" style="margin-top: 1rem;">
+    {% csrf_token %}
+    <button type="submit" style="background-color: #cc0000; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">
+        Logout
+    </button>
+</form>
+
+    </section>
+</main>
+
+    <main>
+        <section>
+            <p>Glad to see you again! Check out the latest albums and events.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 EchoPulse. All rights reserved.</p>
+    </footer>
+</body>
+</html>
