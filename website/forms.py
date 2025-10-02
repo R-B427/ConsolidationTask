@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
+
 class ProfileEditForm(forms.ModelForm):
     """
     A form for editing the profile of a User.
