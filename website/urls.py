@@ -1,9 +1,16 @@
+"""URL Configuration for the EchoPulse Django application.
+
+This module maps URL paths to their corresponding views.
+Each route is associated with a named view, which can be referenced
+through Django's URL reversing functions.
+"""
+
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.echo_pulse_landing, name='landing'),  # public landing page
-    path('home/', views.home, name='home_authenticated'),  # authenticated home page
+    path('', views.echo_pulse_landing, name='landing'),
+    path('home/', views.home, name='home_authenticated'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('register/', views.register, name='register'),
