@@ -14,8 +14,10 @@ RUN apt-get update && \
         build-essential \
         git \
         tzdata \
+        libpq-dev \
         curl \
         && rm -rf /var/lib/apt/lists/*
+
 
 # Copy requirements and install
 COPY requirements.txt .
