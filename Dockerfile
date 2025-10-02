@@ -9,7 +9,13 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y build-essential && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        git \
+        tzdata \
+        curl \
+        && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements and install
 COPY requirements.txt .
@@ -19,7 +25,7 @@ RUN pip install -r requirements.txt
 # Copy project
 COPY . .
 
-# Collect static files (if needed)
+# Collect static files
 RUN python manage.py collectstatic --noinput
 
 # Expose port
