@@ -12,7 +12,6 @@ Whether you're promoting your band or building a fanbase, EchoPulse helps manage
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
 - [Credits](#credits)
 
 ---
@@ -41,7 +40,50 @@ Whether you're promoting your band or building a fanbase, EchoPulse helps manage
    git clone https://github.com/R-B427/echopulse.git
    cd echopulse
 
+2. **Create and Activate Virtual environment**
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
+3. **Install Dependencies**
+pip install -r requirements.txt
+
+4. **Apply Migrations**
+python manage.py migrate
+
+### Docker Usage
+1. **Build Docker Image**
+docker build -t echopulse .
+
+2. **Run Docker Container:**
+docker run -d -p 8080:8000 --name echopulse_container echopulse
+
+3. **Access the App in Browser:**
+Visit http://localhost:8080
+
+4. **Stop Container**
+docker stop echopulse_container
+
+
+### Usage
+
+1. **Run the Development Server:**
+python manage.py runserver
+
+2. **Open in Browser**
+isit http://127.0.0.1:8080
+
+3. **Explore Features**
+-Register/Login
+
+-Browse albums and events
+
+-Favorite albums
+
+-View event details
 
 ### Credits
-Developed By R.Brown
-Github: https://github.com/R-B427/EchoPulse
+Developed By: Ruben Brown
+GitHub: https://github.com/R-B427/ConsolidationTask
