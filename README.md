@@ -46,32 +46,38 @@ python -m venv venv
 # Windows
 venv\Scripts\activate
 # macOS/Linux
-source venv/bin/activate
+source venv/bin/activate```
 
 3. **Install Dependencies**
 ```bash
 pip install -r requirements.txt
+```
 
 4. **Apply Migrations**
 ```bash
 python manage.py migrate
+```
 
 ### Docker Usage
 1. **Build Docker Image**
 ```bash
-docker build -t echopulse .
+docker build -t echopulse
+```
 
 2. **Run Docker Container:**
 ```bash
 docker run -d -p 8080:8000 --name echopulse_container echopulse
+```
 
 3. **Access the App in Browser:**
 ```bash
 Visit http://localhost:8080
+```
 
 4. **Stop Container**
 ```bash
 docker stop echopulse_container
+```
 
 
 ### Usage
@@ -79,10 +85,12 @@ docker stop echopulse_container
 1. **Run the Development Server:**
 ```bash
 python manage.py runserver
+```
 
 2. **Open in Browser**
 ```bash
 isit http://127.0.0.1:8080
+```
 
 3. **Explore Features**
 -Register/Login
