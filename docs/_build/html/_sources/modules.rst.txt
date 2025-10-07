@@ -1,7 +1,27 @@
 echopulse
 =========
 
-.. toctree::
-   :maxdepth: 4
+.. automodule:: echopulse
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
-   echopulse
+.. automodule:: echopulse.asgi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: echopulse.settings
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: echopulse.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: echopulse.wsgi
+   :members:
+   :undoc-members:
+   :show-inheritance:
