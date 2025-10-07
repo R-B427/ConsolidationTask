@@ -1,14 +1,14 @@
 @ECHO OFF
-
 pushd %~dp0
 
 REM Command file for Sphinx documentation
-
 if "%SPHINXBUILD%" == "" (
-	set SPHINXBUILD=sphinx-build
+    set SPHINXBUILD=sphinx-build
 )
-set SOURCEDIR=.
-set BUILDDIR=build
+
+REM Ensure source folder points to where this file is (docs/)
+set SOURCEDIR=%~dp0
+set BUILDDIR=%~dp0_build
 
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
