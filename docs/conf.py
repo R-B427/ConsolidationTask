@@ -6,7 +6,7 @@ import sys
 
 # -- Path setup
 # Add the project root to sys.path (adjust relative path if needed)
-sys.path.insert(0, os.path.abspath('../echopulse'))
+sys.path.insert(0, os.path.abspath('..'))
 
 # Set Django settings module
 os.environ['DJANGO_SETTINGS_MODULE'] = 'echopulse.settings'
