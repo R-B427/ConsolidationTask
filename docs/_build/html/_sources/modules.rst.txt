@@ -1,27 +1,27 @@
 echopulse
 =========
 
-.. automodule:: echopulse
+.. automodule:: echopulse.website
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: echopulse.asgi
+.. automodule:: echopulse.website.asgi
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: echopulse.settings
+.. automodule:: echopulse.website.settings
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: echopulse.urls
+.. automodule:: echopulse.website.urls
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: echopulse.wsgi
+.. automodule:: echopulse.website.wsgi
    :members:
    :undoc-members:
    :show-inheritance:
